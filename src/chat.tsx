@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import { Chatlib } from './chat/index';
 
 export function Chat() {
     const [inputValue, setInputValue] = useState("");
@@ -10,19 +11,8 @@ export function Chat() {
     };
   
     const handleClick = () => {
-      const segmenterJa = new Intl.Segmenter('ja', { granularity: 'word' });
-      const iterator1 = segmenterJa.segment(inputValue)[Symbol.iterator]();
-      const segmentsArray = Array.from(iterator1, segment => segment.segment);
-  
-      const index = segmentsArray.findIndex((segment, i) => 
-        segment === "あなた" && segmentsArray[i + 1] === "は" && segmentsArray[i + 2] === "誰"
-      );
-  
-      if (index !== -1) {
-        setMessage("私の名前はOsiriです");
-      } else {
-        setMessage("すみません。よーわからんのじゃ");
-      }
+        const result = Chatlib(inputValue);
+        setMessage(result);
     };
   
     return (
