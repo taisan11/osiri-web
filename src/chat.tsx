@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { Chatlib } from './chat/index';
 
 export function Chat(props: { a: string }) {
@@ -9,9 +9,17 @@ export function Chat(props: { a: string }) {
       const target = event.target as HTMLInputElement;
       setInputValue(target.value);
     };
-  
+    let lang = "ja";
+    useEffect(() => {
+        if (props.a === "1") {
+            lang = "ja";
+        } else if (props.a === "2") {
+            lang = "en";
+        }
+    })
+
     const handleClick = () => {
-        const result = Chatlib(inputValue);
+        const result = Chatlib(inputValue,lang);
         setMessage(result);
     };
   
