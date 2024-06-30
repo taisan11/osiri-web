@@ -9,7 +9,7 @@ export function Chatlib(naiyou: string,lang: string) {
     const segmenterJa = new Intl.Segmenter(lang, { granularity: 'word' });
     const iterator1 = segmenterJa.segment(naiyou)[Symbol.iterator]();
     const segmentsArray:string[] = Array.from(iterator1, segment => segment.segment);
-    let result = "すみません。よーわからんのじゃ";;
+    let result = lang === "ja" ? "すみません。よーわからんのじゃ" : "Sorry, I don't understand.";
     responses.forEach((response) => {
         if (response.input.every(res => segmentsArray.includes(res))){
             result = response.output;

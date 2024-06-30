@@ -8,3 +8,6 @@ export const responses: { input: string[], output: string }[] = [
     { input: ["今日", "天気"], output: Ans.todayweather },
     { input: ["明日", "天気"], output: Ans.tomorrowweather },
 ];
+export function temp_response(input: string,lang:string):  { input: string[], output: string }[]|any {
+    
+}
