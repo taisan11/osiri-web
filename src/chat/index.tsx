@@ -9,12 +9,12 @@ export function Chatlib(naiyou: string) {
     const segmenterJa = new Intl.Segmenter('ja', { granularity: 'word' });
     const iterator1 = segmenterJa.segment(naiyou)[Symbol.iterator]();
     const segmentsArray:string[] = Array.from(iterator1, segment => segment.segment);
-    console.log(segmentsArray);
+    let result = "すみません。よーわからんのじゃ";;
     responses.forEach((response) => {
-        if (segmentsArray.includes(response.input)) {
-            return response.output;
+        if (response.input.every(res => segmentsArray.includes(res))){
+            result = response.output;
         }
     });
-
-    return "すみません。よーわからんのじゃ";
+    
+    return result;
 }
