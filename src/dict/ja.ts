@@ -1,7 +1,7 @@
 import { res } from "../chat/chatqa"
 
 const Ans = {
-    Wn: "私はAIです。私の名前はChatQAです。",
+    Wn: "私の名前はOsiriです。",
     todayweather: "今日の天気は晴れです。",
     tomorrowweather: "明日の天気は曇りです。"
 }

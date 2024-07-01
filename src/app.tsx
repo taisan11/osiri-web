@@ -25,7 +25,7 @@ export function App() {
       </select>
       <h2>change lang</h2>
       <select onChange={handleSelectChangeI18n}>
-        <option value="1">Japanese</option>
+        <option value="1">日本語</option>
         <option value="2">English</option>
       </select>
       {selectedOption === "1" && <Chat a={selectedOptionI18n}/>}
