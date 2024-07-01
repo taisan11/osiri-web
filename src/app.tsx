@@ -20,8 +20,8 @@ export function App() {
       <h1>Osiri</h1>
       <p>{selectedOptionI18n === "1"&&"A○○le社のSiriの様なものです。"}{selectedOptionI18n === "2"&& "like Siri for A○○le company"}</p>
       <select onChange={handleSelectChange}>
-        <option value="1">チャット</option>
-        <option value="2">説明</option>
+        <option value="1">{selectedOptionI18n === "1"&&"チャット"}{selectedOptionI18n === "2"&&"Chat"}</option>
+        <option value="2">{selectedOptionI18n === "1"&&"このアプリについて"}{selectedOptionI18n === "2"&&"About this app"}</option>
       </select>
       <h2>change lang</h2>
       <select onChange={handleSelectChangeI18n}>
